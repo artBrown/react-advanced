@@ -1,21 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-
-class NavComponent extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.gotoAbout}>Goto About</button>
-                <button onClick={this.props.gotoHome}>Goto Home</button>
-            </div>
-        )
-    }
-}
-
+import {Route, Router, hashHistory} from 'react-router'
 
 class HomeComponent extends React.Component {
     constructor(props) {
@@ -46,36 +31,20 @@ class AboutComponent extends React.Component {
 }
 
 
-class App extends Component {
+class App extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            view: <HomeComponent/>
-        }
-        this.gotoAbout = this.gotoAbout.bind(this)
-        this.gotoHome = this.gotoHome.bind(this)
-    }
-
-    gotoAbout() {
-        this.setState({
-            view: <AboutComponent/>
-        })
-    }
-
-    gotoHome() {
-        this.setState({
-            view: <HomeComponent/>
-        })
     }
 
     render() {
         return (
-            <div>
-                <NavComponent gotoAbout={this.gotoAbout} gotoHome={this.gotoHome}/>
-                {this.state.view}
-            </div>
+            <Router history={hashHistory}>
+                <Route path='/' component={HomeComponent} />
+                <Route path='/home' component={HomeComponent} />
+                <Route path='/about' component={AboutComponent} />
+            </Router>
         )
     }
 }
 
-export default App;
+export default App
