@@ -1,21 +1,66 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+
+class HomeComponent extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div>
+                <p>Welcome to the home page</p>
+            </div>
+        )
+    }
+}
+
+class AboutComponent extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div>
+                <p>About us</p>
+            </div>
+        )
+    }
+}
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            view: <HomeComponent/>
+        }
+        this.gotoAbout = this.gotoAbout.bind(this)
+        this.gotoHome = this.gotoHome.bind(this)
+    }
+
+    gotoAbout() {
+        this.setState({
+            view: <AboutComponent/>
+        })
+    }
+
+    gotoHome() {
+        this.setState({
+            view: <HomeComponent/>
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.view}
+                <button onClick={this.gotoAbout}>Goto About</button>
+                <button onClick={this.gotoHome}>Goto Home</button>
+            </div>
+        )
+    }
 }
 
 export default App;
