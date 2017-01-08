@@ -1,6 +1,22 @@
 import React, { Component } from 'react'
 import './App.css'
 
+class NavComponent extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.props.gotoAbout}>Goto About</button>
+                <button onClick={this.props.gotoHome}>Goto Home</button>
+            </div>
+        )
+    }
+}
+
+
 class HomeComponent extends React.Component {
     constructor(props) {
         super(props)
@@ -55,9 +71,8 @@ class App extends Component {
     render() {
         return (
             <div>
+                <NavComponent gotoAbout={this.gotoAbout} gotoHome={this.gotoHome}/>
                 {this.state.view}
-                <button onClick={this.gotoAbout}>Goto About</button>
-                <button onClick={this.gotoHome}>Goto Home</button>
             </div>
         )
     }
