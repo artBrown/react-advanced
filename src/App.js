@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
+import {incrementCount} from './actions/index'
 
 class App extends React.Component {
     constructor(props) {
@@ -11,9 +12,9 @@ class App extends React.Component {
     }
 
     handleClick() {
-        this.setState({
-            count: this.state.count + 1
-        })
+        let action = incrementCount()
+        console.log(action)
+        // TODO dispatch to the store
     }
 
     render() {
