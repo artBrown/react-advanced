@@ -6,15 +6,24 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            count: 0
+            count: props.store.getState()
         }
+        this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
     }
 
+    componentDidMount() {
+        this.props.store.subscribe(this.handleChange)
+    }
+
+    handleChange() {
+        this.setState({
+            count: this.props.store.getState()
+        })
+    }
+
     handleClick() {
-        let action = incrementCount()
-        console.log(action)
-        // TODO dispatch to the store
+        this.props.store.dispatch(incrementCount())
     }
 
     render() {

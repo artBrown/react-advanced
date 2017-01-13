@@ -20,7 +20,7 @@ function createStore(reducer, initialState) {
     return { getState, subscribe, dispatch }
 }
 
-let reducer = require('./reducer.js')
+let reducer = require('./reducers/index.js')
 let store = createStore(reducer, 0)
 
 console.log(store.getState());
