@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_CATEGORY } from '../constants/actionTypes'
-import activeCategory from './activeCategory'
+// import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_CATEGORY } from '../constants/actionTypes'
+// import activeCategory from './activeCategory'
 import products from './products'
 import shoppingCart from './shoppingCart'
 
@@ -27,7 +27,8 @@ import shoppingCart from './shoppingCart'
 // export default function reducer(state , action) {
 //     combineReducers(activeCategory, products, shoppingCart)
 // }
-let reducer = combineReducers({activeCategory, products, shoppingCart})
+// let reducer = combineReducers({activeCategory, products, shoppingCart})
+let reducer = combineReducers({products, shoppingCart})
 export default reducer
 
 // let s = reducer(initialState, {type: CHANGE_CATEGORY, payload: 'electronics'})
@@ -35,7 +36,7 @@ export default reducer
 // s = reducer(initialState, {type: ADD_TO_CART, payload: {id: 500, name: 'pears', cost: 2, category: 'food'}})
 // console.log(s)
 
-let s = reducer({}, {type: ADD_TO_CART, payload: 193})
-s = reducer(s, {type: ADD_TO_CART, payload: 232})
-s = reducer(s, {type: REMOVE_FROM_CART, payload: 232})
-console.log(s)
+// let s = reducer({}, {type: ADD_TO_CART, payload: 193})
+// s = reducer(s, {type: ADD_TO_CART, payload: 232})
+// s = reducer(s, {type: REMOVE_FROM_CART, payload: 232})
+// console.log(s)
