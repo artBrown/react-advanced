@@ -6,4 +6,11 @@ function incrementCount() {
     }
 }
 
-export {incrementCount}
+function addToCart(id) {
+    return {
+        type: 'ADD_TO_CART',
+        payload: id
+    }
+}
+
+export {incrementCount, addToCart}
